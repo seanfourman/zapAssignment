@@ -1,0 +1,973 @@
+{
+  "pipeline_version": "v2",
+  "generated_at_utc": "2026-04-08T10:59:11.912228+00:00",
+  "input_csv": "data/products.csv",
+  "output_csv": "data/deduplicated_products.csv",
+  "summary": {
+    "input_listings": 131,
+    "unified_products": 30,
+    "multi_item_clusters": 30,
+    "singletons": 0,
+    "llm_api_calls": 58,
+    "decision_entries": 42
+  },
+  "confidence_note": "The `confidence` field is a heuristic similarity signal when available (for example centroid similarity), not a calibrated probability.",
+  "stage2_stats": {
+    "pass1_skipped": 4,
+    "pass1_llm": 20,
+    "pass2_auto": 2,
+    "pass2_llm": 14,
+    "pass3_llm": 24,
+    "pass3_merges": 2,
+    "total_llm": 58
+  },
+  "decisions": [
+    {
+      "stage": "pass1",
+      "decision_type": "cluster_split_review",
+      "items": [
+        "iPad 10th Generation 64 GB",
+        "אפל אייפד דור 10 64GB",
+        "Apple iPad 10.9\" 10th Gen 64GB",
+        "אייפד 10.9 אינץ' דור עשירי 64GB"
+      ],
+      "output_groups": [
+        [
+          "iPad 10th Generation 64 GB",
+          "אפל אייפד דור 10 64GB",
+          "Apple iPad 10.9\" 10th Gen 64GB",
+          "אייפד 10.9 אינץ' דור עשירי 64GB"
+        ]
+      ],
+      "is_match": null,
+      "confidence": null,
+      "confidence_type": null,
+      "used_ai": true,
+      "reason": "Mixed variant tokens triggered LLM review. The candidate cluster was split into 1 group(s)."
+    },
+    {
+      "stage": "pass1",
+      "decision_type": "cluster_split_review",
+      "items": [
+        "סמסונג גלקסי S25 256GB",
+        "Samsung Galaxy S24 Ultra 512GB",
+        "סמסונג גלקסי S24 אולטרה 512GB",
+        "Samsung S25 256GB",
+        "Samsung S24 Ultra 256 GB",
+        "SAMSUNG Galaxy S24 Ultra 256GB SM-S928B",
+        "Galaxy S25 256 GB",
+        "Galaxy S24 Ultra 512GB",
+        "Galaxy S24 Ultra 256GB",
+        "סמסונג גלקסי S25 FE 256GB",
+        "Samsung Galaxy S24 Ultra 256GB",
+        "סמסונג גלקסי S24 אולטרה 256GB",
+        "Samsung Galaxy S25 256GB",
+        "Galaxy S25 FE 256GB",
+        "Samsung Galaxy S25 FE 256GB"
+      ],
+      "output_groups": [
+        [
+          "סמסונג גלקסי S25 256GB",
+          "Samsung Galaxy S24 Ultra 512GB",
+          "סמסונג גלקסי S24 אולטרה 512GB",
+          "Samsung S25 256GB",
+          "Samsung S24 Ultra 256 GB",
+          "SAMSUNG Galaxy S24 Ultra 256GB SM-S928B",
+          "Galaxy S25 256 GB",
+          "Galaxy S24 Ultra 512GB",
+          "Galaxy S24 Ultra 256GB",
+          "סמסונג גלקסי S25 FE 256GB",
+          "Samsung Galaxy S24 Ultra 256GB",
+          "סמסונג גלקסי S24 אולטרה 256GB",
+          "Samsung Galaxy S25 256GB",
+          "Galaxy S25 FE 256GB",
+          "Samsung Galaxy S25 FE 256GB"
+        ]
+      ],
+      "is_match": null,
+      "confidence": null,
+      "confidence_type": null,
+      "used_ai": true,
+      "reason": "Mixed variant tokens triggered LLM review. The candidate cluster was split into 1 group(s)."
+    },
+    {
+      "stage": "pass1",
+      "decision_type": "cluster_split_review",
+      "items": [
+        "ASUS VivoBook 15 X1504 i5 512GB",
+        "Asus Vivobook 15 Intel i5 15.6\"",
+        "ASUS VivoBook X1504ZA i5 512GB"
+      ],
+      "output_groups": [
+        [
+          "ASUS VivoBook 15 X1504 i5 512GB",
+          "ASUS VivoBook X1504ZA i5 512GB"
+        ],
+        [
+          "Asus Vivobook 15 Intel i5 15.6\""
+        ]
+      ],
+      "is_match": null,
+      "confidence": null,
+      "confidence_type": null,
+      "used_ai": true,
+      "reason": "Mixed variant tokens triggered LLM review. The candidate cluster was split into 2 group(s)."
+    },
+    {
+      "stage": "pass1",
+      "decision_type": "cluster_trusted",
+      "items": [
+        "Samsung Galaxy Buds3 Pro",
+        "Galaxy Buds 3 Pro",
+        "Samsung Buds 3 Pro"
+      ],
+      "is_match": true,
+      "confidence": null,
+      "confidence_type": null,
+      "used_ai": false,
+      "reason": "All items shared the same extracted variant tokens, so the candidate cluster was trusted without LLM review.",
+      "variant_tokens": [
+        "pro"
+      ]
+    },
+    {
+      "stage": "pass1",
+      "decision_type": "cluster_split_review",
+      "items": [
+        "Samsung UE55DU7100 Crystal UHD",
+        "סמסונג 55 אינץ' Crystal UHD 4K",
+        "Samsung 55 inch Crystal UHD 4K Smart TV",
+        "Samsung 55\" Crystal UHD 4K"
+      ],
+      "output_groups": [
+        [
+          "Samsung UE55DU7100 Crystal UHD",
+          "סמסונג 55 אינץ' Crystal UHD 4K",
+          "Samsung 55 inch Crystal UHD 4K Smart TV",
+          "Samsung 55\" Crystal UHD 4K"
+        ]
+      ],
+      "is_match": null,
+      "confidence": null,
+      "confidence_type": null,
+      "used_ai": true,
+      "reason": "Mixed variant tokens triggered LLM review. The candidate cluster was split into 1 group(s)."
+    },
+    {
+      "stage": "pass1",
+      "decision_type": "cluster_split_review",
+      "items": [
+        "LG OLED C4 65\" 4K Smart TV",
+        "LG 55 אינץ' OLED C4",
+        "טלוויזיה LG OLED C4 65 אינץ",
+        "LG OLED55C4 55\"",
+        "LG OLED65C4 65\"",
+        "LG 65 אינץ' OLED C4",
+        "טלוויזיה LG OLED C4 55 אינץ"
+      ],
+      "output_groups": [
+        [
+          "LG OLED C4 65\" 4K Smart TV",
+          "טלוויזיה LG OLED C4 65 אינץ",
+          "LG OLED65C4 65\"",
+          "LG 65 אינץ' OLED C4"
+        ],
+        [
+          "LG 55 אינץ' OLED C4",
+          "LG OLED55C4 55\"",
+          "טלוויזיה LG OLED C4 55 אינץ"
+        ]
+      ],
+      "is_match": null,
+      "confidence": null,
+      "confidence_type": null,
+      "used_ai": true,
+      "reason": "Mixed variant tokens triggered LLM review. The candidate cluster was split into 2 group(s)."
+    },
+    {
+      "stage": "pass1",
+      "decision_type": "cluster_split_review",
+      "items": [
+        "iPhone 15 128GB",
+        "אייפון 16 128GB",
+        "אפל אייפון 16 128 ג'יגה",
+        "iPhone 16 Pro Max 256GB",
+        "אפל אייפון 16 פרו מקס 256 ג'יגה",
+        "אייפון 16 פרו 256GB",
+        "Apple iPhone 16 Pro Max 256GB",
+        "אייפון 15 128GB",
+        "Apple iPhone 15 128GB",
+        "אייפון 16 פרו מקס 256GB",
+        "אפל אייפון 15 128 ג'יגה",
+        "iPhone 16 128 GB",
+        "iPhone 16 Pro 256GB",
+        "Apple iPhone 16 Pro 256GB",
+        "APPLE iPhone 16 Pro Max 256GB",
+        "Apple iPhone 16 128GB"
+      ],
+      "output_groups": [
+        [
+          "iPhone 15 128GB",
+          "אייפון 15 128GB",
+          "Apple iPhone 15 128GB",
+          "אפל אייפון 15 128 ג'יגה"
+        ],
+        [
+          "אייפון 16 128GB",
+          "אפל אייפון 16 128 ג'יגה",
+          "אייפון 16 פרו 256GB",
+          "אייפון 16 פרו מקס 256GB"
+        ],
+        [
+          "iPhone 16 Pro Max 256GB",
+          "אפל אייפון 16 פרו מקס 256 ג'יגה",
+          "Apple iPhone 16 Pro Max 256GB",
+          "APPLE iPhone 16 Pro Max 256GB"
+        ],
+        [
+          "iPhone 16 128 GB",
+          "Apple iPhone 16 128GB"
+        ],
+        [
+          "iPhone 16 Pro 256GB",
+          "Apple iPhone 16 Pro 256GB"
+        ]
+      ],
+      "is_match": null,
+      "confidence": null,
+      "confidence_type": null,
+      "used_ai": true,
+      "reason": "Mixed variant tokens triggered LLM review. The candidate cluster was split into 5 group(s)."
+    },
+    {
+      "stage": "pass1",
+      "decision_type": "cluster_split_review",
+      "items": [
+        "MacBook Air M3 13 inch 512GB",
+        "MacBook Air M3 13 inch 256GB",
+        "Apple MacBook Air 13.6\" M3 chip 8GB 256GB",
+        "אפל מקבוק אייר 13 M3 512GB",
+        "אפל מקבוק אייר 13 M3 256GB",
+        "Apple MacBook Air 13\" M3 512GB",
+        "Apple MacBook Air 13\" M3 256GB"
+      ],
+      "output_groups": [
+        [
+          "MacBook Air M3 13 inch 512GB",
+          "אפל מקבוק אייר 13 M3 512GB",
+          "Apple MacBook Air 13\" M3 512GB"
+        ],
+        [
+          "MacBook Air M3 13 inch 256GB",
+          "Apple MacBook Air 13.6\" M3 chip 8GB 256GB",
+          "אפל מקבוק אייר 13 M3 256GB",
+          "Apple MacBook Air 13\" M3 256GB"
+        ]
+      ],
+      "is_match": null,
+      "confidence": null,
+      "confidence_type": null,
+      "used_ai": true,
+      "reason": "Mixed variant tokens triggered LLM review. The candidate cluster was split into 2 group(s)."
+    },
+    {
+      "stage": "pass1",
+      "decision_type": "cluster_split_review",
+      "items": [
+        "סמסונג גלקסי A15 128GB",
+        "Samsung A15 128GB SM-A155F",
+        "Samsung Galaxy A15 128GB",
+        "Galaxy A15 128 GB"
+      ],
+      "output_groups": [
+        [
+          "סמסונג גלקסי A15 128GB",
+          "Samsung A15 128GB SM-A155F",
+          "Samsung Galaxy A15 128GB",
+          "Galaxy A15 128 GB"
+        ]
+      ],
+      "is_match": null,
+      "confidence": null,
+      "confidence_type": null,
+      "used_ai": true,
+      "reason": "Mixed variant tokens triggered LLM review. The candidate cluster was split into 1 group(s)."
+    },
+    {
+      "stage": "pass1",
+      "decision_type": "cluster_split_review",
+      "items": [
+        "Dell XPS 13 Plus i7 512GB",
+        "דל XPS 13 פלוס i7",
+        "DELL XPS13 Plus i7 512GB 16GB",
+        "Dell XPS 13 Plus Intel Core i7 13th Gen"
+      ],
+      "output_groups": [
+        [
+          "Dell XPS 13 Plus i7 512GB",
+          "דל XPS 13 פלוס i7",
+          "Dell XPS 13 Plus Intel Core i7 13th Gen"
+        ],
+        [
+          "DELL XPS13 Plus i7 512GB 16GB"
+        ]
+      ],
+      "is_match": null,
+      "confidence": null,
+      "confidence_type": null,
+      "used_ai": true,
+      "reason": "Mixed variant tokens triggered LLM review. The candidate cluster was split into 2 group(s)."
+    },
+    {
+      "stage": "pass1",
+      "decision_type": "cluster_trusted",
+      "items": [
+        "Sony WH-1000XM5",
+        "Sony WH1000XM5 Wireless",
+        "Sony WH-1000XM4",
+        "Sony WH1000XM4",
+        "Sony 1000XM5"
+      ],
+      "is_match": true,
+      "confidence": null,
+      "confidence_type": null,
+      "used_ai": false,
+      "reason": "All items shared the same extracted variant tokens, so the candidate cluster was trusted without LLM review.",
+      "variant_tokens": []
+    },
+    {
+      "stage": "pass1",
+      "decision_type": "cluster_split_review",
+      "items": [
+        "Xiaomi 14T Pro 512GB",
+        "Xiaomi 14T Pro 512 GB 12GB RAM"
+      ],
+      "output_groups": [
+        [
+          "Xiaomi 14T Pro 512GB",
+          "Xiaomi 14T Pro 512 GB 12GB RAM"
+        ]
+      ],
+      "is_match": null,
+      "confidence": null,
+      "confidence_type": null,
+      "used_ai": true,
+      "reason": "Mixed variant tokens triggered LLM review. The candidate cluster was split into 1 group(s)."
+    },
+    {
+      "stage": "pass1",
+      "decision_type": "cluster_split_review",
+      "items": [
+        "AirPods 4th Generation",
+        "Apple AirPods Pro (2nd Gen) USB-C",
+        "Apple AirPods Pro 2",
+        "AirPods Pro 2nd Generation",
+        "Apple AirPods 4"
+      ],
+      "output_groups": [
+        [
+          "AirPods 4th Generation",
+          "Apple AirPods 4"
+        ],
+        [
+          "Apple AirPods Pro (2nd Gen) USB-C",
+          "Apple AirPods Pro 2",
+          "AirPods Pro 2nd Generation"
+        ]
+      ],
+      "is_match": null,
+      "confidence": null,
+      "confidence_type": null,
+      "used_ai": true,
+      "reason": "Mixed variant tokens triggered LLM review. The candidate cluster was split into 2 group(s)."
+    },
+    {
+      "stage": "pass1",
+      "decision_type": "cluster_split_review",
+      "items": [
+        "Apple iPad Air 11\" M2 128GB",
+        "iPad Air M2 11 inch 128GB Wi-Fi",
+        "אייפד אייר 11 אינץ' M2 128 ג'יגה",
+        "אפל אייפד אייר 11 M2 128GB"
+      ],
+      "output_groups": [
+        [
+          "Apple iPad Air 11\" M2 128GB",
+          "iPad Air M2 11 inch 128GB Wi-Fi",
+          "אייפד אייר 11 אינץ' M2 128 ג'יגה",
+          "אפל אייפד אייר 11 M2 128GB"
+        ]
+      ],
+      "is_match": null,
+      "confidence": null,
+      "confidence_type": null,
+      "used_ai": true,
+      "reason": "Mixed variant tokens triggered LLM review. The candidate cluster was split into 1 group(s)."
+    },
+    {
+      "stage": "pass1",
+      "decision_type": "cluster_split_review",
+      "items": [
+        "גוגל פיקסל 9 256GB",
+        "גוגל Pixel 9 256GB",
+        "Pixel 9 256 GB 8GB RAM",
+        "Google Pixel 9 256GB"
+      ],
+      "output_groups": [
+        [
+          "גוגל פיקסל 9 256GB",
+          "גוגל Pixel 9 256GB",
+          "Pixel 9 256 GB 8GB RAM",
+          "Google Pixel 9 256GB"
+        ]
+      ],
+      "is_match": null,
+      "confidence": null,
+      "confidence_type": null,
+      "used_ai": true,
+      "reason": "Mixed variant tokens triggered LLM review. The candidate cluster was split into 1 group(s)."
+    },
+    {
+      "stage": "pass1",
+      "decision_type": "cluster_split_review",
+      "items": [
+        "LG 9kg Washing Machine",
+        "Samsung 8kg Washing Machine EcoBubble",
+        "Bosch Series 8 9kg Washing Machine",
+        "מכונת כביסה LG 9 ק\"ג פתח קדמי",
+        "מכונת כביסה בוש 9 קילו סדרה 8",
+        "LG מכונת כביסה 9 קילו"
+      ],
+      "output_groups": [
+        [
+          "LG 9kg Washing Machine",
+          "מכונת כביסה LG 9 ק\"ג פתח קדמי",
+          "LG מכונת כביסה 9 קילו"
+        ],
+        [
+          "Samsung 8kg Washing Machine EcoBubble"
+        ],
+        [
+          "Bosch Series 8 9kg Washing Machine",
+          "מכונת כביסה בוש 9 קילו סדרה 8"
+        ]
+      ],
+      "is_match": null,
+      "confidence": null,
+      "confidence_type": null,
+      "used_ai": true,
+      "reason": "Mixed variant tokens triggered LLM review. The candidate cluster was split into 3 group(s)."
+    },
+    {
+      "stage": "pass1",
+      "decision_type": "cluster_split_review",
+      "items": [
+        "מכונת כביסה סמסונג 8 קילו",
+        "בוש מכונת כביסה 9 ק\"ג",
+        "סמסונג מכונת כביסה 8 ק\"ג"
+      ],
+      "output_groups": [
+        [
+          "מכונת כביסה סמסונג 8 קילו",
+          "סמסונג מכונת כביסה 8 ק\"ג"
+        ],
+        [
+          "בוש מכונת כביסה 9 ק\"ג"
+        ]
+      ],
+      "is_match": null,
+      "confidence": null,
+      "confidence_type": null,
+      "used_ai": true,
+      "reason": "Mixed variant tokens triggered LLM review. The candidate cluster was split into 2 group(s)."
+    },
+    {
+      "stage": "pass1",
+      "decision_type": "cluster_trusted",
+      "items": [
+        "JBL T520BT",
+        "ג'יי בי אל Tune 520BT",
+        "אוזניות JBL Tune 520BT",
+        "JBL Tune 520BT"
+      ],
+      "is_match": true,
+      "confidence": null,
+      "confidence_type": null,
+      "used_ai": false,
+      "reason": "All items shared the same extracted variant tokens, so the candidate cluster was trusted without LLM review.",
+      "variant_tokens": []
+    },
+    {
+      "stage": "pass1",
+      "decision_type": "cluster_split_review",
+      "items": [
+        "Sony XR-65X90L Bravia 4K",
+        "טלוויזיה סוני 65 אינץ Bravia X90L",
+        "Sony 65\" Bravia X90L"
+      ],
+      "output_groups": [
+        [
+          "Sony XR-65X90L Bravia 4K",
+          "טלוויזיה סוני 65 אינץ Bravia X90L",
+          "Sony 65\" Bravia X90L"
+        ]
+      ],
+      "is_match": null,
+      "confidence": null,
+      "confidence_type": null,
+      "used_ai": true,
+      "reason": "Mixed variant tokens triggered LLM review. The candidate cluster was split into 1 group(s)."
+    },
+    {
+      "stage": "pass1",
+      "decision_type": "cluster_split_review",
+      "items": [
+        "הייסנס 50 אינץ' 4K",
+        "סוני בראוויה 65 אינץ' X90L",
+        "Hisense 50 inch 4K Smart TV",
+        "טלוויזיה סמסונג 55 אינץ 4K",
+        "טלוויזיה הייסנס 50 אינץ 4K",
+        "Hisense 50A6K 50\" 4K"
+      ],
+      "output_groups": [
+        [
+          "הייסנס 50 אינץ' 4K",
+          "Hisense 50 inch 4K Smart TV",
+          "טלוויזיה הייסנס 50 אינץ 4K",
+          "Hisense 50A6K 50\" 4K"
+        ],
+        [
+          "סוני בראוויה 65 אינץ' X90L"
+        ],
+        [
+          "טלוויזיה סמסונג 55 אינץ 4K"
+        ]
+      ],
+      "is_match": null,
+      "confidence": null,
+      "confidence_type": null,
+      "used_ai": true,
+      "reason": "Mixed variant tokens triggered LLM review. The candidate cluster was split into 3 group(s)."
+    },
+    {
+      "stage": "pass1",
+      "decision_type": "cluster_trusted",
+      "items": [
+        "אוזניות סוני WH-1000XM5 אלחוטיות",
+        "סוני WH-1000XM4",
+        "סוני WH-1000XM5"
+      ],
+      "is_match": true,
+      "confidence": null,
+      "confidence_type": null,
+      "used_ai": false,
+      "reason": "All items shared the same extracted variant tokens, so the candidate cluster was trusted without LLM review.",
+      "variant_tokens": []
+    },
+    {
+      "stage": "pass1",
+      "decision_type": "cluster_split_review",
+      "items": [
+        "Lenovo IdeaPad 3 15.6\" Intel Core i5",
+        "Lenovo IdeaPad Slim 3 15.6\" i5 512GB",
+        "לנובו אידיאפד סלים 3 15.6 אינץ i5",
+        "לנובו IdeaPad Slim 3 15.6 אינץ'"
+      ],
+      "output_groups": [
+        [
+          "Lenovo IdeaPad 3 15.6\" Intel Core i5"
+        ],
+        [
+          "Lenovo IdeaPad Slim 3 15.6\" i5 512GB",
+          "לנובו אידיאפד סלים 3 15.6 אינץ i5",
+          "לנובו IdeaPad Slim 3 15.6 אינץ'"
+        ]
+      ],
+      "is_match": null,
+      "confidence": null,
+      "confidence_type": null,
+      "used_ai": true,
+      "reason": "Mixed variant tokens triggered LLM review. The candidate cluster was split into 2 group(s)."
+    },
+    {
+      "stage": "pass1",
+      "decision_type": "cluster_split_review",
+      "items": [
+        "סמסונג גלקסי טאב S9 FE 128GB",
+        "Samsung Galaxy Tab S9 FE 128GB",
+        "Galaxy Tab S9 FE 128 GB Wi-Fi",
+        "Samsung Tab S9 FE 128GB"
+      ],
+      "output_groups": [
+        [
+          "סמסונג גלקסי טאב S9 FE 128GB",
+          "Samsung Galaxy Tab S9 FE 128GB",
+          "Galaxy Tab S9 FE 128 GB Wi-Fi",
+          "Samsung Tab S9 FE 128GB"
+        ]
+      ],
+      "is_match": null,
+      "confidence": null,
+      "confidence_type": null,
+      "used_ai": true,
+      "reason": "Mixed variant tokens triggered LLM review. The candidate cluster was split into 1 group(s)."
+    },
+    {
+      "stage": "pass1",
+      "decision_type": "cluster_split_review",
+      "items": [
+        "שיאומי 14T Pro 512GB",
+        "שיאומי 14T פרו 512GB"
+      ],
+      "output_groups": [
+        [
+          "שיאומי 14T Pro 512GB",
+          "שיאומי 14T פרו 512GB"
+        ]
+      ],
+      "is_match": null,
+      "confidence": null,
+      "confidence_type": null,
+      "used_ai": true,
+      "reason": "Mixed variant tokens triggered LLM review. The candidate cluster was split into 1 group(s)."
+    },
+    {
+      "stage": "pass2",
+      "decision_type": "singleton_match",
+      "pair": [
+        "Samsung WW80T534 8kg",
+        "מכונת כביסה סמסונג 8 קילו"
+      ],
+      "is_match": true,
+      "confidence": 0.533,
+      "confidence_type": "best_centroid_similarity",
+      "used_ai": true,
+      "matched_cluster": [
+        "Samsung WW80T534 8kg",
+        "מכונת כביסה סמסונג 8 קילו",
+        "סמסונג מכונת כביסה 8 ק\"ג"
+      ],
+      "reason": "Best centroid similarity stayed below the 0.85 auto-merge threshold, so GPT-4o-mini reviewed the ambiguous case and matched the singleton to an existing cluster."
+    },
+    {
+      "stage": "pass2",
+      "decision_type": "singleton_match",
+      "pair": [
+        "אפל אירפודס פרו 2",
+        "Apple AirPods Pro (2nd Gen) USB-C"
+      ],
+      "is_match": true,
+      "confidence": 0.669,
+      "confidence_type": "best_centroid_similarity",
+      "used_ai": true,
+      "matched_cluster": [
+        "אפל אירפודס פרו 2",
+        "Apple AirPods Pro (2nd Gen) USB-C",
+        "Apple AirPods Pro 2",
+        "AirPods Pro 2nd Generation"
+      ],
+      "reason": "Best centroid similarity stayed below the 0.85 auto-merge threshold, so GPT-4o-mini reviewed the ambiguous case and matched the singleton to an existing cluster."
+    },
+    {
+      "stage": "pass2",
+      "decision_type": "singleton_match",
+      "pair": [
+        "אירפודז פרו 2",
+        "Apple AirPods Pro (2nd Gen) USB-C"
+      ],
+      "is_match": true,
+      "confidence": 0.4,
+      "confidence_type": "best_centroid_similarity",
+      "used_ai": true,
+      "matched_cluster": [
+        "אפל אירפודס פרו 2",
+        "Apple AirPods Pro (2nd Gen) USB-C",
+        "Apple AirPods Pro 2",
+        "אירפודז פרו 2",
+        "AirPods Pro 2nd Generation"
+      ],
+      "reason": "Best centroid similarity stayed below the 0.85 auto-merge threshold, so GPT-4o-mini reviewed the ambiguous case and matched the singleton to an existing cluster."
+    },
+    {
+      "stage": "pass2",
+      "decision_type": "singleton_match",
+      "pair": [
+        "Bosch WAX32M40 9kg",
+        "Bosch Series 8 9kg Washing Machine"
+      ],
+      "is_match": true,
+      "confidence": 0.683,
+      "confidence_type": "best_centroid_similarity",
+      "used_ai": true,
+      "matched_cluster": [
+        "Bosch Series 8 9kg Washing Machine",
+        "Bosch WAX32M40 9kg",
+        "מכונת כביסה בוש 9 קילו סדרה 8"
+      ],
+      "reason": "Best centroid similarity stayed below the 0.85 auto-merge threshold, so GPT-4o-mini reviewed the ambiguous case and matched the singleton to an existing cluster."
+    },
+    {
+      "stage": "pass2",
+      "decision_type": "singleton_match",
+      "pair": [
+        "אסוס ויוובוק 15 i5",
+        "ASUS VivoBook 15 X1504 i5 512GB"
+      ],
+      "is_match": true,
+      "confidence": 0.549,
+      "confidence_type": "best_centroid_similarity",
+      "used_ai": true,
+      "matched_cluster": [
+        "ASUS VivoBook 15 X1504 i5 512GB",
+        "אסוס ויוובוק 15 i5",
+        "ASUS VivoBook X1504ZA i5 512GB"
+      ],
+      "reason": "Best centroid similarity stayed below the 0.85 auto-merge threshold, so GPT-4o-mini reviewed the ambiguous case and matched the singleton to an existing cluster."
+    },
+    {
+      "stage": "pass2",
+      "decision_type": "singleton_match",
+      "pair": [
+        "אפל אירפודס 4",
+        "AirPods 4th Generation"
+      ],
+      "is_match": true,
+      "confidence": 0.669,
+      "confidence_type": "best_centroid_similarity",
+      "used_ai": true,
+      "matched_cluster": [
+        "AirPods 4th Generation",
+        "אפל אירפודס 4",
+        "Apple AirPods 4"
+      ],
+      "reason": "Best centroid similarity stayed below the 0.85 auto-merge threshold, so GPT-4o-mini reviewed the ambiguous case and matched the singleton to an existing cluster."
+    },
+    {
+      "stage": "pass2",
+      "decision_type": "singleton_match",
+      "pair": [
+        "מקבוק אייר 13 אינץ' M3 256 ג'יגה",
+        "Apple MacBook Air 13.6\" M3 chip 8GB 256GB"
+      ],
+      "is_match": true,
+      "confidence": 0.511,
+      "confidence_type": "best_centroid_similarity",
+      "used_ai": true,
+      "matched_cluster": [
+        "MacBook Air M3 13 inch 256GB",
+        "Apple MacBook Air 13.6\" M3 chip 8GB 256GB",
+        "אפל מקבוק אייר 13 M3 256GB",
+        "מקבוק אייר 13 אינץ' M3 256 ג'יגה",
+        "Apple MacBook Air 13\" M3 256GB"
+      ],
+      "reason": "Best centroid similarity stayed below the 0.85 auto-merge threshold, so GPT-4o-mini reviewed the ambiguous case and matched the singleton to an existing cluster."
+    },
+    {
+      "stage": "pass2",
+      "decision_type": "singleton_match",
+      "pair": [
+        "LG F1209SMS 9KG Front Load",
+        "מכונת כביסה LG 9 ק\"ג פתח קדמי"
+      ],
+      "is_match": true,
+      "confidence": 0.601,
+      "confidence_type": "best_centroid_similarity",
+      "used_ai": true,
+      "matched_cluster": [
+        "LG 9kg Washing Machine",
+        "LG F1209SMS 9KG Front Load",
+        "מכונת כביסה LG 9 ק\"ג פתח קדמי",
+        "LG מכונת כביסה 9 קילו"
+      ],
+      "reason": "Best centroid similarity stayed below the 0.85 auto-merge threshold, so GPT-4o-mini reviewed the ambiguous case and matched the singleton to an existing cluster."
+    },
+    {
+      "stage": "pass2",
+      "decision_type": "singleton_match",
+      "pair": [
+        "סמסונג גלקסי באדס 3 פרו",
+        "Samsung Galaxy Buds3 Pro"
+      ],
+      "is_match": true,
+      "confidence": 0.378,
+      "confidence_type": "best_centroid_similarity",
+      "used_ai": true,
+      "matched_cluster": [
+        "Samsung Galaxy Buds3 Pro",
+        "Galaxy Buds 3 Pro",
+        "Samsung Buds 3 Pro",
+        "סמסונג גלקסי באדס 3 פרו"
+      ],
+      "reason": "Best centroid similarity stayed below the 0.85 auto-merge threshold, so GPT-4o-mini reviewed the ambiguous case and matched the singleton to an existing cluster."
+    },
+    {
+      "stage": "pass2",
+      "decision_type": "singleton_match",
+      "pair": [
+        "Asus Vivobook 15 Intel i5 15.6\"",
+        "ASUS VivoBook 15 X1504 i5 512GB"
+      ],
+      "is_match": true,
+      "confidence": 0.896,
+      "confidence_type": "best_centroid_similarity",
+      "used_ai": false,
+      "matched_cluster": [
+        "ASUS VivoBook 15 X1504 i5 512GB",
+        "Asus Vivobook 15 Intel i5 15.6\"",
+        "אסוס ויוובוק 15 i5",
+        "ASUS VivoBook X1504ZA i5 512GB"
+      ],
+      "reason": "Best same-category centroid similarity exceeded the 0.85 auto-merge threshold, so the singleton was merged without LLM review."
+    },
+    {
+      "stage": "pass2",
+      "decision_type": "singleton_match",
+      "pair": [
+        "DELL XPS13 Plus i7 512GB 16GB",
+        "Dell XPS 13 Plus Intel Core i7 13th Gen"
+      ],
+      "is_match": true,
+      "confidence": 0.852,
+      "confidence_type": "best_centroid_similarity",
+      "used_ai": false,
+      "matched_cluster": [
+        "Dell XPS 13 Plus i7 512GB",
+        "דל XPS 13 פלוס i7",
+        "DELL XPS13 Plus i7 512GB 16GB",
+        "Dell XPS 13 Plus Intel Core i7 13th Gen"
+      ],
+      "reason": "Best same-category centroid similarity exceeded the 0.85 auto-merge threshold, so the singleton was merged without LLM review."
+    },
+    {
+      "stage": "pass2",
+      "decision_type": "singleton_match",
+      "pair": [
+        "Samsung 8kg Washing Machine EcoBubble",
+        "מכונת כביסה סמסונג 8 קילו"
+      ],
+      "is_match": true,
+      "confidence": 0.749,
+      "confidence_type": "best_centroid_similarity",
+      "used_ai": true,
+      "matched_cluster": [
+        "Samsung WW80T534 8kg",
+        "מכונת כביסה סמסונג 8 קילו",
+        "Samsung 8kg Washing Machine EcoBubble",
+        "סמסונג מכונת כביסה 8 ק\"ג"
+      ],
+      "reason": "Best centroid similarity stayed below the 0.85 auto-merge threshold, so GPT-4o-mini reviewed the ambiguous case and matched the singleton to an existing cluster."
+    },
+    {
+      "stage": "pass2",
+      "decision_type": "singleton_match",
+      "pair": [
+        "בוש מכונת כביסה 9 ק\"ג",
+        "Bosch Series 8 9kg Washing Machine"
+      ],
+      "is_match": true,
+      "confidence": 0.809,
+      "confidence_type": "best_centroid_similarity",
+      "used_ai": true,
+      "matched_cluster": [
+        "Bosch Series 8 9kg Washing Machine",
+        "בוש מכונת כביסה 9 ק\"ג",
+        "Bosch WAX32M40 9kg",
+        "מכונת כביסה בוש 9 קילו סדרה 8"
+      ],
+      "reason": "Best centroid similarity stayed below the 0.85 auto-merge threshold, so GPT-4o-mini reviewed the ambiguous case and matched the singleton to an existing cluster."
+    },
+    {
+      "stage": "pass2",
+      "decision_type": "singleton_match",
+      "pair": [
+        "סוני בראוויה 65 אינץ' X90L",
+        "טלוויזיה סוני 65 אינץ Bravia X90L"
+      ],
+      "is_match": true,
+      "confidence": 0.724,
+      "confidence_type": "best_centroid_similarity",
+      "used_ai": true,
+      "matched_cluster": [
+        "סוני בראוויה 65 אינץ' X90L",
+        "Sony XR-65X90L Bravia 4K",
+        "טלוויזיה סוני 65 אינץ Bravia X90L",
+        "Sony 65\" Bravia X90L"
+      ],
+      "reason": "Best centroid similarity stayed below the 0.85 auto-merge threshold, so GPT-4o-mini reviewed the ambiguous case and matched the singleton to an existing cluster."
+    },
+    {
+      "stage": "pass2",
+      "decision_type": "singleton_match",
+      "pair": [
+        "טלוויזיה סמסונג 55 אינץ 4K",
+        "Samsung 55 inch Crystal UHD 4K Smart TV"
+      ],
+      "is_match": true,
+      "confidence": 0.844,
+      "confidence_type": "best_centroid_similarity",
+      "used_ai": true,
+      "matched_cluster": [
+        "Samsung UE55DU7100 Crystal UHD",
+        "סמסונג 55 אינץ' Crystal UHD 4K",
+        "טלוויזיה סמסונג 55 אינץ 4K",
+        "Samsung 55 inch Crystal UHD 4K Smart TV",
+        "Samsung 55\" Crystal UHD 4K"
+      ],
+      "reason": "Best centroid similarity stayed below the 0.85 auto-merge threshold, so GPT-4o-mini reviewed the ambiguous case and matched the singleton to an existing cluster."
+    },
+    {
+      "stage": "pass2",
+      "decision_type": "singleton_match",
+      "pair": [
+        "Lenovo IdeaPad 3 15.6\" Intel Core i5",
+        "Lenovo IdeaPad Slim 3 15.6\" i5 512GB"
+      ],
+      "is_match": true,
+      "confidence": 0.822,
+      "confidence_type": "best_centroid_similarity",
+      "used_ai": true,
+      "matched_cluster": [
+        "Lenovo IdeaPad 3 15.6\" Intel Core i5",
+        "Lenovo IdeaPad Slim 3 15.6\" i5 512GB",
+        "לנובו אידיאפד סלים 3 15.6 אינץ i5",
+        "לנובו IdeaPad Slim 3 15.6 אינץ'"
+      ],
+      "reason": "Best centroid similarity stayed below the 0.85 auto-merge threshold, so GPT-4o-mini reviewed the ambiguous case and matched the singleton to an existing cluster."
+    },
+    {
+      "stage": "pass3",
+      "decision_type": "cluster_merge",
+      "pair": [
+        "Sony WH-1000XM5",
+        "אוזניות סוני WH-1000XM5 אלחוטיות"
+      ],
+      "is_match": true,
+      "confidence": 0.81,
+      "confidence_type": "cluster_centroid_similarity",
+      "used_ai": true,
+      "matched_cluster": [
+        "אוזניות סוני WH-1000XM5 אלחוטיות",
+        "סוני WH-1000XM4",
+        "סוני WH-1000XM5"
+      ],
+      "reason": "Cluster centroids were close enough to pass the 0.65 merge gate, and GPT-4o-mini confirmed that the two clusters describe the same product."
+    },
+    {
+      "stage": "pass3",
+      "decision_type": "cluster_merge",
+      "pair": [
+        "Xiaomi 14T Pro 512GB",
+        "שיאומי 14T Pro 512GB"
+      ],
+      "is_match": true,
+      "confidence": 0.787,
+      "confidence_type": "cluster_centroid_similarity",
+      "used_ai": true,
+      "matched_cluster": [
+        "שיאומי 14T Pro 512GB",
+        "שיאומי 14T פרו 512GB"
+      ],
+      "reason": "Cluster centroids were close enough to pass the 0.65 merge gate, and GPT-4o-mini confirmed that the two clusters describe the same product."
+    }
+  ]
+}
