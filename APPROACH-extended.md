@@ -211,31 +211,43 @@ _"נבדק על 131 רישומים, הארכיטקטורה תוכננה למיל
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│  INPUT: products.csv (131 listings, messy names, varied prices) │
+│  INPUT: products.csv (131 messy product listings)               │
+│                                                                 │
+│  - columns: product_id, product_name, price, category           │
+│  - 6 categories: mobile, headphones, TVs, laptops, etc.         │
+│  - same product appears as Hebrew/English/model-code variants   │
+│  - prices differ; target one row per real product with min price│
 └─────────────────┬───────────────────────────────────────────────┘
                   │
                   ▼
 ┌─────────────────────────────────────────────────────────────────┐
 │  STAGE 1: EMBEDDINGS   (src/embeddings.py)                      │
 │                                                                 │
+│  - model: paraphrase-multilingual-mpnet-base-v2                 │
+│  - embed every product_name with this multilingual model        │
+│  - compare only products from the same category                 │
 │  Pass 1 - pairwise within each category at sim ≥ 0.87           │
 │           Build clusters via union-find on the pair graph       │
 │  Pass 2 - assign leftover singletons to cluster centroids       │
-│           at sim ≥ 0.65 (centroids are more stable than names)  │
+│           at sim ≥ 0.65 (centroids are more stable)             │
 │                                                                 │
 │  Output: 24 candidate clusters + 9 leftover singletons          │
-│  Goal:   HIGH RECALL - catch everything, accept false positives │
+│  Meaning: candidate groups, not final truth yet                 │
+│  Goal:   HIGH RECALL - catch duplicates, allow false positives  │
 └─────────────────┬───────────────────────────────────────────────┘
                   │
                   ▼  (24 candidate clusters + 9 leftover singletons)
 ┌─────────────────────────────────────────────────────────────────┐
 │  STAGE 2: LLM REFINEMENT v2   (src/llm_refine_v2.py)            │
 │                                                                 │
+│  - not every product/pair is sent to GPT                        │
+│  - API helpers live in src/llm_refine.py                        │
 │  Cheap gates decide when GPT-4o-mini is needed:                 │
 │                                                                 │
 │  Pass 1 - SPLIT: gated by variant-token agreement               │
-│           If variant tokens disagree:                           │
+│           If variant tokens disagree, do NOT split automatically│
 │           call split_cluster_with_llm(...)                      │
+│           GPT-4o-mini decides whether/how to split              │
 │           LLM returns JSON groups of true duplicates            │
 │                                                                 │
 │  Pass 2 - MATCH: gated by centroid similarity                   │
@@ -249,7 +261,6 @@ _"נבדק על 131 רישומים, הארכיטקטורה תוכננה למיל
 │                                                                 │
 │  Output: ~30 final clusters, 0 unmatched singletons             │
 │  Goal:   HIGH PRECISION - only merge real duplicates            │
-│                                                                 │
 │  v1 (always-LLM) lives in src/llm_refine.py for comparison      │
 └─────────────────┬───────────────────────────────────────────────┘
                   │
@@ -257,16 +268,20 @@ _"נבדק על 131 רישומים, הארכיטקטורה תוכננה למיל
 ┌─────────────────────────────────────────────────────────────────┐
 │  STAGE 3: PRICE CONSOLIDATION   (src/deduplicator.py)           │
 │                                                                 │
-│  For each cluster:                                              │
+│  - no AI here; duplicate decisions are already done             │
+│  For each final cluster:                                        │
 │    - pick the canonical name (longest in the cluster)           │
 │    - min_price, max_price, savings_pct                          │
-│    - preserve original listing_ids for traceability             │
+│    - num_listings + original listing_ids for traceability       │
 └─────────────────┬───────────────────────────────────────────────┘
                   │
                   ▼
 ┌─────────────────────────────────────────────────────────────────┐
 │  OUTPUT: deduplicated_products.csv (~30 unified products)       │
 │          + deduplicated_products.audit.json                     │
+│                                                                 │
+│  - CSV is the final catalog: one row per real product           │
+│  - audit JSON explains auto decisions and GPT-reviewed cases    │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
