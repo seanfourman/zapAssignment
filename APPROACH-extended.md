@@ -256,7 +256,7 @@ _"נבדק על 131 רישומים, הארכיטקטורה תוכננה למיל
 │           LLM returns matched group number or null              │
 │                                                                 │
 │  Pass 3 - MERGE: gated by centroid distance + sibling guard     │
-│           If cluster centroids are close and not siblings:      │
+│           If cluster centroid sim ≥ 0.65 and not siblings:      │
 │           call match_singleton_with_llm(...) to confirm merge   │
 │                                                                 │
 │  Output: ~30 final clusters, 0 unmatched singletons             │
