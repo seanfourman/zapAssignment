@@ -5,6 +5,7 @@
 > היסטוריית האיטרציות, דוגמאות מלאות, גרפים ומטריקות מלאות.
 >
 > **איך לקרוא את המסמך:**
+>
 > - אם צריך רק את גרסת ההגשה הקצרה: [APPROACH.md](APPROACH.md).
 > - אם רוצים לראות את תהליך ההחלטה המלא, הבאגים והאיטרציות: המשך כאן.
 > - אלא אם צוין אחרת, המטריקות כאן הן מריצה מייצגת; ה-`LLM` מוסיף שונות קלה בין ריצות.
@@ -226,13 +227,25 @@ _"נבדק על 131 רישומים, הארכיטקטורה תוכננה למיל
 │  Goal:   HIGH RECALL - catch everything, accept false positives │
 └─────────────────┬───────────────────────────────────────────────┘
                   │
-                  ▼  (only the ~33 items Stage 1 was unsure about)
+                  ▼  (24 candidate clusters + 9 leftover singletons)
 ┌─────────────────────────────────────────────────────────────────┐
 │  STAGE 2: LLM REFINEMENT v2   (src/llm_refine_v2.py)            │
 │                                                                 │
+│  Cheap gates decide when GPT-4o-mini is needed:                 │
+│                                                                 │
 │  Pass 1 - SPLIT: gated by variant-token agreement               │
+│           If variant tokens disagree:                           │
+│           call split_cluster_with_llm(...)                      │
+│           LLM returns JSON groups of true duplicates            │
+│                                                                 │
 │  Pass 2 - MATCH: gated by centroid similarity                   │
+│           If singleton -> centroid sim ≥ 0.85: auto-merge       │
+│           Else call match_singleton_with_llm(...)               │
+│           LLM returns matched group number or null              │
+│                                                                 │
 │  Pass 3 - MERGE: gated by centroid distance + sibling guard     │
+│           If cluster centroids are close and not siblings:      │
+│           call match_singleton_with_llm(...) to confirm merge   │
 │                                                                 │
 │  Output: ~30 final clusters, 0 unmatched singletons             │
 │  Goal:   HIGH PRECISION - only merge real duplicates            │
